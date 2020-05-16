@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.IO;
 using MidasPhotoPicker.Interfaces;
+using MidasPhotoPicker.ViewModels;
 
 
 namespace MidasPhotoPicker
@@ -16,63 +17,15 @@ namespace MidasPhotoPicker
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        //List<string> oImages = new List<string>();
-
-        public MainPage()
+        [Obsolete]
+        public MainPage(IMediaService mediaService)
         {
             InitializeComponent();
 
-            //Clear function of images.
+            BindingContext = new MainPageViewModel(this, mediaService);
+
 
         }
 
-        /*
-        async void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-            
-            (sender as Button).IsEnabled = false;
-
-            Stream oStream = await DependencyService.Get<IMediaService>().SelectImageStreamAsync();
-
-            if (oStream != null)
-            {
-                ImageControl.Source = ImageSource.FromStream(() => oStream);
-            }
-
-            (sender as Button).IsEnabled = true;
-            
-
-        }
-        */
-
-        /* 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            MessagingCenter.Subscribe<App, List<string>>((App)Xamarin.Forms.Application.Current,"SelectedImages", (s, xList) =>
-                {
-                    listItems.FlowItemsSource = xList;
-                    oImages = xList;
-                });
-
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-
-            MessagingCenter.Unsubscribe<App, List<string>>(this, "SelectedImages");
-
-        }
-
-        void Handle_Clicked(System.Object sender, System.EventArgs e)
-        {
-            DependencyService.Get<IMediaService>().SelectPhotos();
-        }
-
-        */
-
-        
     }
 }

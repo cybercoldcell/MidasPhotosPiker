@@ -10,15 +10,14 @@ namespace MidasPhotoPicker
 {
     public partial class App : Application
     {
+        [Obsolete]
         public App(IMediaService mediaService)
         {
             InitializeComponent();
             FlowListView.Init();
 
-            MainPage = new MainPage()
-            {
-                BindingContext = new MainViewModel(mediaService)
-            };
+            MainPage = new MainPage(mediaService);
+
         }
 
         protected override void OnStart()

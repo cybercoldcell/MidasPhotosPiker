@@ -138,6 +138,7 @@ namespace MidasPhotoPicker.Droid.Services
 
         }
 
+        [Obsolete]
         public void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             ObservableCollection<MediaModel> oCollection = null;
