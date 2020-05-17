@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Foundation;
 using UIKit;
+using MidasPhotoPicker.iOS.Services;
 
 namespace MidasPhotoPicker.iOS
 {
@@ -23,7 +23,10 @@ namespace MidasPhotoPicker.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            //LoadApplication(new App());
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            var mediaService = new PhotoPickerService();
+
+            LoadApplication(new App(mediaService));
 
             return base.FinishedLaunching(app, options);
         }

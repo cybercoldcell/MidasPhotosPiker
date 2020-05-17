@@ -34,12 +34,9 @@
 	<string>MidasPhotoPicker</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>CFBundleTypeName</string>
-		</dict>
-	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Needs Access to Photos</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Needs Access to Photos</string>
 </dict>
 </plist>

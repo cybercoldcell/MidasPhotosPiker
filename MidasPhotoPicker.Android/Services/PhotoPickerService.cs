@@ -217,7 +217,6 @@ namespace MidasPhotoPicker.Droid.Services
                     File.WriteAllBytes(sPath, fullImage);
 
                     var oThumpnailImg = ImageHelper.RotateImage(oPath, 0.25f);
-                    //sThumpnailPath = FileService.GetOutputPath(MediaFileType.Image, TempDir, $"{sFileName}{sExt}");
                     sThumpnailPath = FileService.GetOutputPath(MediaFileType.Image, TempDir, $"{sFileName}-THUMBNAIL{sExt}");
 
                     File.WriteAllBytes(sThumpnailPath, oThumpnailImg);
